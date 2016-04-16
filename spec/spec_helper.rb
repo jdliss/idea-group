@@ -10,6 +10,17 @@ module SpecHelper
 
     ApplicationController.any_instance.stubs(:current_user).returns(user)
   end
+
+  def create_and_log_in_admin
+    admin = User.create(
+                        username: "admin",
+                        email: "admin@email.com",
+                        password: "password",
+                        role: 1
+    )
+
+    ApplicationController.any_instance.stubs(:current_user).returns(admin)
+  end
 end
 
 
@@ -44,6 +55,11 @@ RSpec.configure do |config|
     # ...rather than:
     #     # => "be bigger than 2"
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+  end
+
+  config.before(:each) do
+    reset_session!
+    ApplicationController.any_instance.unstub(:current_user)
   end
 
   # rspec-mocks config goes here. You can use an alternate test double

@@ -2,7 +2,7 @@
 
 <p>Score: <%= @user.score %></p>
 
-<%= link_to "New Idea", new_user_idea_path(@user) %>
 <%= link_to "All Ideas", ideas_path  %>
+<%= link_to "New Idea", new_user_idea_path(@user) %>
 <%= link_to "Your Ideas", user_ideas_path(@user)  %>
 

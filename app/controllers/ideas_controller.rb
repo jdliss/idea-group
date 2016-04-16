@@ -3,6 +3,7 @@ class IdeasController < ApplicationController
   end
 
   def index
+    @ideas = Idea.all
   end
 
   def new

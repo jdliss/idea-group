@@ -5,7 +5,7 @@ RSpec.feature "Guest can register" do
     scenario "they see their dashboard" do
       visit root_path
 
-      click_on "Register New User"
+      click_on "Register"
       fill_in "Username", with: "jdliss"
       fill_in "Email", with: "jdliss@email.com"
       fill_in "Password", with: "password"

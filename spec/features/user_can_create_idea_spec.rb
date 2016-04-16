@@ -16,6 +16,7 @@ RSpec.feature "User creates and idea" do
         fill_in "Description", with: "Rubber ducks are cool"
         select "Fun", from: "idea_category_id"
       end
+
       click_on "Create Idea"
 
       expect(current_path).to eq idea_path(Idea.first)

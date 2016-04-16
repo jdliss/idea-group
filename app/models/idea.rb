@@ -5,6 +5,7 @@ class Idea < ActiveRecord::Base
   belongs_to :category
 
   def image
-    Fotofetch::Fetch.new.fetch_links(self.title)
+    links = Fotofetch::Fetch.new.fetch_links(self.title)
+    links.values.pop
   end
 end
